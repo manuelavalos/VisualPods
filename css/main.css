@@ -1,0 +1,61 @@
+.content-pod{
+	width: 400px;
+	height: 400px;
+	border: 1px solid;
+	position: relative;
+}
+.circle {
+	border-radius: 50%;
+	display: inline-block;
+	margin-right: 20px;
+}
+.pod {
+	width: 200px;
+	height: 200px;
+	background: green;
+	position: absolute;
+	top:25%;
+	left:25%;
+}
+.rol-1 {
+	width: 80px;
+	height: 80px;
+	background: red;
+}
+
+.rol-2 {
+	width: 80px;
+	height: 80px;
+	background: yellow;
+}
+
+.rol-3 {
+	width: 80px;
+	height: 80px;
+	background: orange;
+}
+
+.rol-4 {
+	width: 80px;
+	height: 80px;
+	background: pink;
+}
+
+.rol-5 {
+	width: 80px;
+	height: 80px;
+	background: cyan;
+}
+
+.name{
+	width: 200px;
+}
+
+/*ANIMACIONES*/
+/* Safari y Chrome */
+@-webkit-keyframes animacionCambioColor {
+	0%   {fill:red;}
+	25%  {fill:yellow;}
+	50%  {fill:orange;}
+	100% {fill:red;}
+}
