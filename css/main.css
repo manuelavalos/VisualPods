@@ -8,7 +8,7 @@ body {
   overflow-y:auto;
   font-family: Roboto;
   font-style: thin;
-  background: url(../img/background.png) center no-repeat;
+  /*background: url(../img/background.png) center no-repeat;*/
   background-size: cover;
 }
 h1{
