@@ -58,13 +58,32 @@ function create_people(config, defaults){
 			}).children().attr({
 				"fill": role_color
 			});
+
+
 			actual_deg += deg_per_person;
 			if (actual_deg > 360) {
 				actual_deg = 0;
 			};
+
 			$("#content_resources", config.id).append(pod_resources["resource_" + resource_id ]);
+			//pod_resources["resource_" + resource_id].hover( hoverover, hoverout );
+			//var hoverover = function() { pod_resources["resource_" + resource_id].animate({ transform: 's2r45,150,150' }, 1000, mina.bounce ) };
+			//var hoverout = function() { pod_resources["resource_" + resource_id].animate({ transform: 's1r0,150,150' }, 1000, mina.bounce ) };
 		}
 	};
+}
+
+function animation_test(){
+	// http://svg.dabbles.info/
+	var s = Snap(600,600);
+	var g = s.group();
+	var tux = Snap.load("http://snapsvg.io/assets/demos/tutorial/mascot.svg", function ( loadedFragment ) { 
+		g.append( loadedFragment );
+		g.hover( hoverover, hoverout );
+	} );
+
+	var hoverover = function() { g.animate({ transform: 's2r45,150,150' }, 1000, mina.bounce ) };
+	var hoverout = function() { g.animate({ transform: 's1r0,150,150' }, 1000, mina.bounce ) };
 }
 
 var dregreesToRadian = function (deg) {
@@ -356,4 +375,7 @@ $(document).ready(function(){
 	create_people(config_pod_8, defaults);
 	create_people(config_pod_9, defaults);
 	create_people(config_pod_10, defaults);
+
+	//Test de animación con SVG
+	animation_test();
 })
