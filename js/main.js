@@ -260,7 +260,7 @@ $(document).ready(function(){
 			{'tl': 		0},
 			{'ba': 		2},
 			{'dev': 	0},
-			{'dev_op': 	0},
+			{'dev_op': 	5},
 			{'qcl': 	0},
 			{'qca': 	0},
 			{'qcm': 	0},
