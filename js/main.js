@@ -62,14 +62,14 @@ function create_people(config, defaults){
 
 			//Draw the circle with the attributes.
 			resourcesCircles[i][q].attr({
+				id: config.id+"_"+i+"_"+q,
+				class: "resources-circles",
 				fill: role_color,
 				stroke: "#FFF",
 				strokeWidth: 5,
 				angle: Math.ceil((half_circle - actual_deg)),
 				transform:"translate(150, 150), rotate("+ Math.ceil((half_circle - actual_deg))+")",
 				filter: s.filter(Snap.filter.shadow(1, 0, 2, 'black', 1)), //dropshadow
-				class: "resources-circles",
-				id: config.id+"_"+i+"_"+q,
 			}).hover(hoverover, hoverout).click( clickFunc );
 
 			//Actualizo el angulo para el proximo circulo.
@@ -81,7 +81,7 @@ function create_people(config, defaults){
 var hoverover = function() {
 	this.animate({
 		r: 30,
-	}, 500, mina.bounce);
+	}, 500, mina.backout);
 };
 var hoverout = function() {
 	this.animate({
