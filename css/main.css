@@ -8,16 +8,20 @@ body {
   overflow-y:auto;
   font-family: Roboto;
   font-style: thin;
-  /*background: url(../img/background.png) center no-repeat;*/
+  /*
+  background: url(../img/background.png) center no-repeat;
   background-size: cover;
+  */
 }
 h1{
 	color: dimgrey;
 }
+
 .centered{
 	margin-right: auto;
 	margin-left: auto;
 }
+
 .central_content{
 	position: relative;
 	width: 970px;
@@ -40,8 +44,14 @@ h1{
 	left:25%;
 }
 
-.resources-circles {
+.big_circle {
 	cursor:pointer;
+}
+.resources_circles {
+	cursor:pointer;
+}
+.team_name {
+
 }
 
 /*ANIMACIONES*/

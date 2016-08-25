@@ -18,6 +18,7 @@ function create_pod(config, defaults) {
 
 	//Draw the circle with the attributes.
 	bigCircle.attr({
+		class: "big_circle",
 		fill: fill,
 		stroke: "#FFF",
 		strokeWidth: 5,
@@ -57,20 +58,27 @@ function create_people(config, defaults){
 			//Guardo el objeto Snap.svg (s.circle) en el array
 			resourcesCircles[i][q] = s.circle(70, 70, 20);
 
+			//var text = s.text(110,290, "Romeo Delta");
+			//text.attr({
+			//	class:"team_name",
+			//	fill: "#696969",
+			//	"font-size": '24px',
+			//});
+
 			//Fill circle with a special config color.
 			var fill = config.pod.color || defaults.pod.color;
 
 			//Draw the circle with the attributes.
 			resourcesCircles[i][q].attr({
 				id: config.id+"_"+i+"_"+q,
-				class: "resources-circles",
+				class: "resources_circles",
 				fill: role_color,
 				stroke: "#FFF",
 				strokeWidth: 5,
 				angle: Math.ceil((half_circle - actual_deg)),
 				transform:"translate(150, 150), rotate("+ Math.ceil((half_circle - actual_deg))+")",
 				filter: s.filter(Snap.filter.shadow(1, 0, 2, 'black', 1)), //dropshadow
-			}).hover(hoverover, hoverout).click( clickFunc );
+			}).hover(hoverover, hoverout).click(clickFunc);
 
 			//Actualizo el angulo para el proximo circulo.
 			actual_deg += deg_per_person;
@@ -80,7 +88,7 @@ function create_people(config, defaults){
 
 var hoverover = function() {
 	this.animate({
-		r: 30,
+		r: 25,
 	}, 500, mina.backout);
 };
 var hoverout = function() {
