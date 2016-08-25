@@ -40,6 +40,9 @@ h1{
 	left:25%;
 }
 
+.resources-circles {
+	cursor:pointer;
+}
 
 /*ANIMACIONES*/
 /* Safari y Chrome */

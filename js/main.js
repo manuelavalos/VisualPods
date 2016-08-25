@@ -68,30 +68,37 @@ function create_people(config, defaults){
 				angle: Math.ceil((half_circle - actual_deg)),
 				transform:"translate(150, 150), rotate("+ Math.ceil((half_circle - actual_deg))+")",
 				filter: s.filter(Snap.filter.shadow(1, 0, 2, 'black', 1)), //dropshadow
-			}).hover(hoverover, hoverout);
+				class: "resources-circles",
+				id: config.id+"_"+i+"_"+q,
+			}).hover(hoverover, hoverout).click( clickFunc );
 
-			// Efectos SVG
-			// http://svg.dabbles.info/
+			//Actualizo el angulo para el proximo circulo.
 			actual_deg += deg_per_person;
 		}
 	}
 }
 
 var hoverover = function() {
-	this.animate({ transform: "translate(150, 150), rotate("+ (this.node.attributes.angle.value)+"), scale(1.5)"}, 1000, mina.bounce);
-	console.log('Over: ', this.node.attributes.angle.value)
+	this.animate({
+		r: 30,
+	}, 500, mina.bounce);
 };
 var hoverout = function() {
-	this.animate({ transform: "translate(150, 150), rotate("+ (this.node.attributes.angle.value)+"), scale(1)"}, 1000, mina.bounce);
-	console.log('Out')
+	this.animate({
+		r: 20,
+	}, 500, mina.bounce);
 };
 
+var clickFunc = function(){
+	var id = this.node.attributes.id.value;
+	console.log("Click! ", id);
+}
 //function animation_test(){
 //	// Efectos SVG
 //	// http://svg.dabbles.info/
 //	var s = Snap(600,600);
 //	var g = s.group();
-//	var tux = Snap.load("http://snapsvg.io/assets/demos/tutorial/mascot.svg", function ( loadedFragment ) { 
+//	var tux = Snap.load("./img/mascot.svg", function ( loadedFragment ) { 
 //		g.append( loadedFragment );
 //		g.hover( hoverover, hoverout );
 //	} );
@@ -130,9 +137,9 @@ $(document).ready(function(){
 		roles: [
 			{'pm': 		1},
 			{'sm': 		0},
-			{'tl': 		0},
+			{'tl': 		1},
 			{'ba': 		0},
-			{'dev': 	0},
+			{'dev': 	7},
 			{'dev_op': 	0},
 			{'qcl': 	1},
 			{'qca': 	0},
