@@ -50,8 +50,12 @@ h1{
 .resources_circles {
 	cursor:pointer;
 }
-.team_name {
-
+.pod_modal {
+	width: 400px;
+	height: 300px;
+	float:left;
+	/*position: absolute;*/
+	/*display:none;*/
 }
 
 /*ANIMACIONES*/

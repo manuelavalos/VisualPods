@@ -58,13 +58,6 @@ function create_people(config, defaults){
 			//Guardo el objeto Snap.svg (s.circle) en el array
 			resourcesCircles[i][q] = s.circle(70, 70, 20);
 
-			//var text = s.text(110,290, "Romeo Delta");
-			//text.attr({
-			//	class:"team_name",
-			//	fill: "#696969",
-			//	"font-size": '24px',
-			//});
-
 			//Fill circle with a special config color.
 			var fill = config.pod.color || defaults.pod.color;
 
@@ -101,19 +94,43 @@ var clickFunc = function(){
 	var id = this.node.attributes.id.value;
 	console.log("Click! ", id);
 }
-//function animation_test(){
-//	// Efectos SVG
-//	// http://svg.dabbles.info/
-//	var s = Snap(600,600);
-//	var g = s.group();
-//	var tux = Snap.load("./img/mascot.svg", function ( loadedFragment ) { 
-//		g.append( loadedFragment );
-//		g.hover( hoverover, hoverout );
-//	} );
-//
-//	var hoverover = function() { g.animate({ transform: 's2r45,150,150' }, 1000, mina.bounce ) };
-//	var hoverout = function() { g.animate({ transform: 's1r0,150,150' }, 1000, mina.bounce ) };
-//}
+
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+function drawChart() {
+	var data = google.visualization.arrayToDataTable([
+	  ['Values', 'Percentage'],
+	  ['Act Ethically',    	5],
+	  ['Team Player',     	5],
+	  ['Continue Innovate', 2],
+	  ['Excelence', 		7],
+	  ['Think Big',      	2],
+	  ['Have Fun', 			2]
+	]);
+
+	var options = {
+	  title: 'Globant Values',
+	  pieHole: 0.4,
+	  backgroundColor: {
+	  	stroke: '#696969',
+	  	strokeWidth: 0,
+	  	fill: '#FFF'
+	  },
+	  slices: {
+	    0: { color: '#1d5e9e' },
+	    1: { color: '#64428c' },
+	    2: { color: '#d3d240' },
+	    3: { color: '#03a5c3' },
+	    4: { color: '#009a91' },
+	    5: { color: '#f0970e' }
+	  }
+	};
+	var chart = new google.visualization.PieChart(document.getElementById('Svg1_piechart'));
+	chart.draw(data, options);
+
+	var chart2 = new google.visualization.PieChart(document.getElementById('Svg2_piechart'));
+	chart2.draw(data, options);
+}
 
 $(document).ready(function(){
 	//Default config

@@ -3,49 +3,16 @@
 	<head>
 		<title>Dashboard MapPod</title>
 	</head>
+	<!-- GOOGLE CHARTS -->
+	<!-- //https://developers.google.com/chart/interactive/docs/gallery/piechart#options -->
+	<!-- //https://developers.google.com/chart/interactive/docs/gallery -->
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<!-- GOOGLE CHARTS -->
 	<script type="text/javascript" src="./js/jquery-2.2.3.min.js"></script>
 	<script type="text/javascript" src="./js/Snap.svg-0.4.1/dist/snap.svg-min.js"></script>
 	<script type="text/javascript" src="./js/fix.js"></script>
 	<script type="text/javascript" src="./js/main.js"></script>
 
-	<!-- GOOGLE CHARTS -->
-	<!-- //https://developers.google.com/chart/interactive/docs/gallery/piechart#options -->
-	<!-- //https://developers.google.com/chart/interactive/docs/gallery -->
-	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-	<script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-
-        var data = google.visualization.arrayToDataTable([
-          ['Values', 'Percentage'],
-          ['Act Ethically',    	5],
-          ['Team Player',     	5],
-          ['Continue Innovate', 2],
-          ['Excelence', 		7],
-          ['Think Big',      	2],
-          ['Have Fun', 			2]
-        ]);
-
-        var options = {
-          title: 'Globant Values',
-          pieHole: 0.4,
-          slices: {
-            0: { color: '#1d5e9e' },
-            1: { color: '#64428c' },
-            2: { color: '#d3d240' },
-            3: { color: '#03a5c3' },
-            4: { color: '#009a91' },
-            5: { color: '#f0970e' }
-          }
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-        chart.draw(data, options);
-      }
-    </script>
-    <!-- GOOGLE CHARTS -->
 
 	<link rel="stylesheet" type="text/css" href="./css/main.css">
 	<body>
@@ -54,6 +21,10 @@
 			<span>Powered by MapPods - Globant</span>
 		</div>
 		<div class="central_content centered">
+			<!-- CON LIBRERIA https://developers.google.com/chart -->
+			<div id="Svg1_piechart" class="pod_modal"></div>
+			<div id="Svg2_piechart" class="pod_modal"></div>
+
 			<!-- CON LIBRERIA http://snapsvg.io/-->
 			<svg id="Svg1" width="300" height="300"></svg>
 			<svg id="Svg2" width="300" height="300"></svg>
@@ -63,6 +34,5 @@
 			<svg id="Svg6" width="300" height="300"></svg>
 			<svg id="Svg7" width="300" height="300"></svg>
 		</div>
-		<div id="piechart" style="width: 900px; height: 500px;"></div>
 	</body>
 </html>
