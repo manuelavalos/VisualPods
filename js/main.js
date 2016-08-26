@@ -18,12 +18,13 @@ function create_pod(config, defaults) {
 
 	//Draw the circle with the attributes.
 	bigCircle.attr({
+		id: config.id,
 		class: "big_circle",
 		fill: fill,
 		stroke: "#FFF",
 		strokeWidth: 5,
 		filter: s.filter(Snap.filter.shadow(1, 1, 1, 'black', 1)) //dropshadow
-	});
+	}).click(podClick);
 
 	//-----------------------------------------------------
 	// ANIMACIÓN
@@ -58,13 +59,6 @@ function create_people(config, defaults){
 			//Guardo el objeto Snap.svg (s.circle) en el array
 			resourcesCircles[i][q] = s.circle(70, 70, 20);
 
-			//var text = s.text(110,290, "Romeo Delta");
-			//text.attr({
-			//	class:"team_name",
-			//	fill: "#696969",
-			//	"font-size": '24px',
-			//});
-
 			//Fill circle with a special config color.
 			var fill = config.pod.color || defaults.pod.color;
 
@@ -78,7 +72,7 @@ function create_people(config, defaults){
 				angle: Math.ceil((half_circle - actual_deg)),
 				transform:"translate(150, 150), rotate("+ Math.ceil((half_circle - actual_deg))+")",
 				filter: s.filter(Snap.filter.shadow(1, 0, 2, 'black', 1)), //dropshadow
-			}).hover(hoverover, hoverout).click(clickFunc);
+			}).hover(hoverover, hoverout).click(personClick);
 
 			//Actualizo el angulo para el proximo circulo.
 			actual_deg += deg_per_person;
@@ -97,23 +91,15 @@ var hoverout = function() {
 	}, 500, mina.bounce);
 };
 
-var clickFunc = function(){
+var podClick = function(){
 	var id = this.node.attributes.id.value;
 	console.log("Click! ", id);
 }
-//function animation_test(){
-//	// Efectos SVG
-//	// http://svg.dabbles.info/
-//	var s = Snap(600,600);
-//	var g = s.group();
-//	var tux = Snap.load("./img/mascot.svg", function ( loadedFragment ) { 
-//		g.append( loadedFragment );
-//		g.hover( hoverover, hoverout );
-//	} );
-//
-//	var hoverover = function() { g.animate({ transform: 's2r45,150,150' }, 1000, mina.bounce ) };
-//	var hoverout = function() { g.animate({ transform: 's1r0,150,150' }, 1000, mina.bounce ) };
-//}
+
+var personClick = function(){
+	var id = this.node.attributes.id.value;
+	console.log("Click! ", id);
+}
 
 $(document).ready(function(){
 	//Default config
